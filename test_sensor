@@ -1,0 +1,95 @@
+import csv
+
+
+def validate_temperature(value):
+    return 0 <= value <= 50
+
+
+def validate_humidity(value):
+    return 0 <= value <= 100
+
+
+def validate_acceleration(value):
+    return -4 <= value <= 4
+
+
+def run_test(test_id, sensor, value, expected):
+    if value is None:
+        actual = "FAIL"
+        reason = "Missing sensor value"
+
+    elif not isinstance(value, (int, float)):
+        actual = "FAIL"
+        reason = "Invalid sensor value"
+
+    else:
+
+        if sensor == "temperature":
+            valid = validate_temperature(value)
+
+        elif sensor == "humidity":
+            valid = validate_humidity(value)
+
+        elif sensor in ["accel_x", "accel_y", "accel_z"]:
+            valid = validate_acceleration(value)
+
+        else:
+            valid = False
+
+        actual = "PASS" if valid else "FAIL"
+        reason = "Value within valid range" if valid else "Value outside valid range"
+
+    return [test_id, sensor, value, expected, actual, reason]
+
+
+test_cases = [
+    ["TC001", "temperature", 25, "PASS"],
+    ["TC002", "temperature", 50, "PASS"],
+    ["TC003", "temperature", 55, "FAIL"],
+    ["TC004", "humidity", 60, "PASS"],
+    ["TC005", "humidity", 105, "FAIL"],
+    ["TC006", "accel_x", 1.5, "PASS"],
+    ["TC007", "accel_y", -3.5, "PASS"],
+    ["TC008", "accel_z", 5, "FAIL"],
+    ["TC009", "temperature", None, "FAIL"],
+    ["TC010", "humidity", "invalid", "FAIL"]
+]
+
+
+results = []
+
+for test in test_cases:
+    result = run_test(*test)
+    results.append(result)
+
+
+with open("test_results.csv", "w", newline="", encoding="utf-8") as file:
+
+    writer = csv.writer(file)
+
+    writer.writerow([
+        "Test ID",
+        "Sensor",
+        "Value",
+        "Expected",
+        "Actual",
+        "Reason"
+    ])
+
+    writer.writerows(results)
+
+
+print("===== Embedded Sensor Test Results =====")
+
+for result in results:
+
+    print(
+        f"{result[0]} | "
+        f"{result[1]} | "
+        f"Value: {result[2]} | "
+        f"Expected: {result[3]} | "
+        f"Actual: {result[4]}"
+    )
+
+print("\nTest execution completed.")
+print("Results saved to test_results.csv")
