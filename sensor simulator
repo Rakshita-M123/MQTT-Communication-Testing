@@ -1,0 +1,31 @@
+import random
+
+
+def generate_sensor_data():
+    """
+    Simulates sensor readings from an embedded IoT device.
+    """
+
+    temperature = round(random.uniform(20, 40), 2)
+    humidity = round(random.uniform(30, 80), 2)
+
+    accel_x = round(random.uniform(-2, 2), 2)
+    accel_y = round(random.uniform(-2, 2), 2)
+    accel_z = round(random.uniform(-2, 2), 2)
+
+    return {
+        "temperature": temperature,
+        "humidity": humidity,
+        "accel_x": accel_x,
+        "accel_y": accel_y,
+        "accel_z": accel_z
+    }
+
+
+if __name__ == "__main__":
+    data = generate_sensor_data()
+
+    print("===== Simulated Sensor Data =====")
+
+    for sensor, value in data.items():
+        print(f"{sensor}: {value}")
