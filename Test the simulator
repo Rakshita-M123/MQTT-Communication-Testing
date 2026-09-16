@@ -1,0 +1,10 @@
+python sensor_simulator.py
+
+===== Simulated Sensor Data =====
+temperature: 29.43
+humidity: 61.27
+accel_x: 0.85
+accel_y: -1.21
+accel_z: 0.43
+
+The values will change every time because they are randomly generated.
