@@ -1,0 +1,11 @@
+Test ID,Sensor,Input,Expected Result,Test Type
+TC001,Temperature,25,PASS,Functional
+TC002,Temperature,50,PASS,Boundary
+TC003,Temperature,55,FAIL,Negative
+TC004,Humidity,60,PASS,Functional
+TC005,Humidity,105,FAIL,Negative
+TC006,Accelerometer X,1.5,PASS,Functional
+TC007,Accelerometer Y,-3.5,PASS,Boundary
+TC008,Accelerometer Z,5,FAIL,Negative
+TC009,Temperature,None,FAIL,Missing Data
+TC010,Humidity,invalid,FAIL,Invalid Data
