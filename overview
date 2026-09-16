@@ -1,0 +1,35 @@
+This project demonstrates a Python-based simulator for testing MQTT communication behavior in an IoT device.
+
+The project focuses on connection handling, message publishing, subscription behavior, communication interruptions, reconnection, and recovery scenarios.
+
+Testing Covered
+MQTT connection testing
+Publish testing
+Subscribe testing
+Disconnect testing
+Reconnection testing
+Recovery testing
+Negative testing
+PASS/FAIL validation
+CSV test reporting
+Test Scenarios
+Test ID	Scenario	Expected
+TC001	MQTT connection	PASS
+TC002	Publish message	PASS
+TC003	Subscribe to topic	PASS
+TC004	Disconnect device	PASS
+TC005	Publish while disconnected	FAIL
+TC006	Reconnect to MQTT	PASS
+TC007	Publish after reconnection	PASS
+Technologies
+Python
+MQTT concepts
+IoT communication
+QA test scenarios
+CSV reporting
+Purpose
+
+The project demonstrates how communication interruptions and recovery behavior can be represented in an embedded/IoT testing workflow.
+
+The simulator is software-based and is intended to demonstrate testing concepts rather than replace testing on a physical MQTT device.
+  
