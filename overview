@@ -1,35 +1,55 @@
-This project demonstrates a Python-based simulator for testing MQTT communication behavior in an IoT device.
+# Embedded Sensor Testing Simulator
 
-The project focuses on connection handling, message publishing, subscription behavior, communication interruptions, reconnection, and recovery scenarios.
+## Overview
 
-Testing Covered
-MQTT connection testing
-Publish testing
-Subscribe testing
-Disconnect testing
-Reconnection testing
-Recovery testing
-Negative testing
-PASS/FAIL validation
-CSV test reporting
-Test Scenarios
-Test ID	Scenario	Expected
-TC001	MQTT connection	PASS
-TC002	Publish message	PASS
-TC003	Subscribe to topic	PASS
-TC004	Disconnect device	PASS
-TC005	Publish while disconnected	FAIL
-TC006	Reconnect to MQTT	PASS
-TC007	Publish after reconnection	PASS
-Technologies
-Python
-MQTT concepts
-IoT communication
-QA test scenarios
-CSV reporting
-Purpose
+A Python-based software simulator for testing sensor data from an embedded/IoT device.
 
-The project demonstrates how communication interruptions and recovery behavior can be represented in an embedded/IoT testing workflow.
+The project demonstrates functional testing, boundary testing, negative testing, missing-data validation, invalid-data handling, and automated test-result generation.
 
-The simulator is software-based and is intended to demonstrate testing concepts rather than replace testing on a physical MQTT device.
-  
+## Objectives
+
+- Simulate embedded sensor readings
+- Validate temperature and humidity values
+- Validate accelerometer readings
+- Test boundary conditions
+- Test invalid sensor values
+- Test missing sensor data
+- Generate automated PASS/FAIL results
+- Export test results to CSV
+
+## Sensors Simulated
+
+- Temperature
+- Humidity
+- Accelerometer X
+- Accelerometer Y
+- Accelerometer Z
+
+## Testing Types
+
+### Functional Testing
+
+Verifies that valid sensor readings are accepted.
+
+### Boundary Testing
+
+Checks sensor values at defined limits.
+
+### Negative Testing
+
+Checks how the system handles invalid or out-of-range values.
+
+### Missing Data Testing
+
+Checks the behavior when sensor data is unavailable.
+
+### Invalid Data Testing
+
+Checks the behavior when non-numeric sensor data is received.
+
+## Technologies
+
+- Python
+- CSV
+- Embedded/IoT testing concepts
+- Sensor data validation
